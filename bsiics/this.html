@@ -1,0 +1,77 @@
+<button onclick="this.style.background='red'">this in event listener</button>
+<button onclick="eventHandler(this)">this in event listener with functio</button>
+
+<script>
+'use strict';
+
+
+//console.log(this.toString());
+
+ 
+  function thisScope(){
+      console.log("in function" + this.toString());
+  }
+
+  //thisScope();
+
+function eventHandler(crl){
+    console.log(crl.toString());
+}
+ 
+function objectLiteral() {
+    let product = {
+    'productID': 54,
+    'name': 'kjkjk',
+    'cost': 5423,
+    'price': 25252.1,
+    'grossProfit': function () {
+        return (this.price - this.cost)
+        .toLocaleString('en-us' , {
+            style : 'currency' , currency: 'usd' 
+            });
+     }
+};
+
+let product2= {
+    'cost': 52423,
+    'price': 2523252.1, 
+};
+    console.log(product.grossProfit());
+    console.log(product.grossProfit.call(product));
+    console.log(product.grossProfit.call(product2));
+    console.log(product.grossProfit.apply(product));
+    console.log(product.grossProfit.apply(product2));
+  
+}
+
+//objectLiteral();
+
+function product(id , name ,cost , price) {
+    
+    this.Id = id;
+    this.name = name;
+    this.cost = cost;
+    this.price = price;
+    this.grossProfit = function () {
+        return (this.price - this.cost)
+        .toLocaleString('en-us' , {
+            style : 'currency' , currency: 'usd' 
+        });
+   }
+};
+
+function constractorFunction(){
+    let prod1 = new product(46 , 'sdfaf' , 563.2 , 456.3);
+    let prod2 = new product(43 , 'iojoi' , 56.2 , 45.3);
+
+    console.log(prod1.grossProfit());
+    console.log(prod2.grossProfit());
+}
+
+constractorFunction();
+
+
+
+
+
+</script>
