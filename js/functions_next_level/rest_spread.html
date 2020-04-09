@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // rest parameters
+
+        function greetings(...names) {
+            names.forEach(name => 
+                console.log('hi ' +name));
+        }
+
+        greetings('john' , 'mary' , 'andy');
+
+        function greetings2(message, ...names) {
+            names.forEach(name => 
+                console.log(message +name));
+        }
+
+        greetings2('welcome ', 'john' , 'mary' , 'andy');
+
+        // spread oposite of rest
+
+        function greet(arg1, arg2) {
+ 
+            console.log('hi ' + arg1 + ' ' + arg2);
+       }
+
+       let names = ['john', 'andy'];
+       greet(...names);
+       let names1 = ['john', 'andy', 'jhgj',' kj'];
+       greet(...names1);
+
+        function textArrayex(arg1, arg2 , arg3, arg4){
+            console.log(arg1, arg2 , arg3, arg4);
+       }
+
+       let text = 'abcd654646';// strimg is an array
+       textArrayex(...text);
+
+       function textArrayex1(arg1, arg2 , arg3, arg4, ...otherChars){
+            console.log(arg1, arg2 , arg3, arg4);
+            console.log(otherChars);
+       }
+
+       let text1 = 'abcd654646';// strimg is an array
+       textArrayex1(...text1);
+    </script>
+</body>
+</html>
