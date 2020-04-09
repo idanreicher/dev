@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // cal() & apply()
+        let p1 = {name:'john'};
+        let p2 = {name:'andy'};
+        
+        function sayHi(){ 
+            console.log('hi ' + this.name)
+        };
+        
+        sayHi.call(p1);
+        sayHi.call(p2);
+    
+        let sum = (nam1,  nam2) => nam1 + nam2;
+        
+        let sumCall = sum.call(undefined , 1, 2);
+        let sumApply = sum.apply(undefined , [1, 2]);
+        
+        console.log(sumApply);
+        console.log(sumCall);
+        
+        // bind() creat/copt a function from 1 object to another
+
+        let p1Bind = {
+            name:'john',
+            getName : function () {
+                return this.name;
+            }
+        };
+        let p2Bind = {name:'andy'};
+        // getNameCopyToBind2 = p2Bind.gatName() when passing the p3Bind object
+        let getNameCopyToBind2 = p1Bind.getName.bind(p2Bind);
+       
+        console.log(p1Bind.getName());
+        console.log( getNameCopyToBind2());
+        
+        
+        // eval()
+
+        let x = 1;
+        let y = 2;
+        let s = 'abc';
+        console.log(eval(x+y+1));
+        console.log( eval('x+y+s')); //casted to string
+        
+        // parseInt
+        console.log(parseInt('f' , 16));//hexadecimal base 15
+        console.log(parseInt('17' , 10));//hexadecimal 
+        console.log(parseInt('hai' , 10));//hexadecimal
+        
+         // parseFloat
+         console.log(parseFloat(3.665 ));//3.656
+        console.log(parseFloat(366));// 366
+        console.log(parseFloat('hay'));// NaN
+        
+        // escape  return husky valuue
+        console.log(escape('text'));//text
+        console.log(escape(' '));// %20 
+        console.log(escape('abc&%'));// abc%20%25
+
+        // unescape the  husky valuue
+        console.log(unescape('text'));//text
+        console.log(unescape('%20'));// 
+        console.log(unescape('abc%20%25'));//  abc&%
+        
+        
+        
+        
+        </script>    
+</body>
+</html>

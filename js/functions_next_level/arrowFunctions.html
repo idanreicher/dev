@@ -1,0 +1,75 @@
+<script>
+
+// no params
+let greetings = () =>{
+    return 'hello';
+};
+
+
+let message = greetings();
+console.log(message);
+
+let greetingsShort = () => 'hello';
+
+let messageShort = greetingsShort();
+console.log(messageShort);
+
+// wwith one param
+
+let greetingsOneParam = name => 'hello ' + name;
+
+let messageOneParam = greetingsOneParam('name');
+console.log(messageOneParam);
+
+// params with one statment returned
+
+let sum = (nam1,  nam2) => nam1 + nam2;
+
+outPut  = sum(3 ,4);
+console.log(outPut);
+
+
+// this scope
+
+let userObj = {
+    name : 'john',
+    // this.name is john 
+    // this reffers to the objext
+    regularFunc : function(){
+        console.log (this);
+        console.log('hello ' + this.name);
+    },
+    // this.name is empty 
+    // this reffers to window object
+    arrowFunc: () => console.log('hello ' +  this.name)
+
+};
+userObj.regularFunc();
+userObj.arrowFunc();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

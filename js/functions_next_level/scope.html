@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function sayHi() {
+            console.log(this);
+        }
+        //this reffers to window obj
+        sayHi();
+        
+        
+        let greeting = {};
+         greeting.sayHi= function(){ console.log(this)};
+        
+        //this reffers to greeting obj
+        greeting.sayHi();
+        
+        // constructor automaticaly creates an object 
+        function greetingConstructor (){
+             console.log(this)
+            };
+            let greetingConstructorThis = new greetingConstructor();
+        
+           console.log(greetingConstructorThis);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        </script>    
+</body>
+</html>
