@@ -66,5 +66,43 @@
     display(idan.__proto__.__proto__.__proto__);// null
 
 
+    function Person(first, last, age) {
+        this.first = first;
+        this.last = last;
+        this.age = age;
+        Object.defineProperty(this, 'Full',{
+            get: function () {
+                return this.first + ' ' + this.last;    
+            },
 
+            enumerable: true
+        });
+    }
+
+    function Student(first, last, age) {
+        
+        Person.call(this, first, last, age);
+        this._enrolledCourded = [];
+        
+        this.enroll = function (courseId) {
+            this._enrolledCourded.push(courseId);
+        }
+
+        this.getCourses = function () {
+            return this.Full + "'s enrollled courses are: " + 
+            this._enrolledCourded.join(', ')
+        }
+    }
+ 
+    Student.prototype = Object.create(Person.prototype);
+    Student.prototype.cunstructor = Student;
+
+    let jimProto = new Student('Jim', 'Cooper', 29);
+    jimProto.enroll('course1');
+    jimProto.enroll('course2');
+    jimProto.enroll('course3');
+    display(jimProto.getCourses());
+    display(jimProto);
+    display(jimProto.__proto__);
+    display(jimProto.__proto__.__proto__);
 })();
