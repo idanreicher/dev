@@ -9,7 +9,6 @@ class ListContacts extends Component{
 
     static propTypes = {
         contacts: PropTypes.array.isRequired,
-        onDeleteContact: PropTypes.func.isRequired
     }
 
     state = {
@@ -53,7 +52,7 @@ class ListContacts extends Component{
                     <Link  to="/create"
                             className="add-contact"   
                         >
-                            Add Contacr
+                            Add Contact
                     </Link>
                 </div>    
 
@@ -72,9 +71,6 @@ class ListContacts extends Component{
                                     <p>{contact.name }</p>
                                     <p>{contact.email} </p>
                             </div> 
-                            <button onClick={() => onDeleteContact(contact)} className="contact-remove">
-                                Remove
-                            </button>
                         </li>    
                     )}
                 </ul>

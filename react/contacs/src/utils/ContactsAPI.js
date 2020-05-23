@@ -1,24 +1,13 @@
-const api = process.env.REACT_APP_CONTACTS_API_URL || 'http://localhost:5001'
-
-let token = localStorage.token
-
-if (!token)
-  token = localStorage.token = Math.random().toString(36).substr(-8)
+const api = "test.php"
 
 const headers = {
-  'Accept': 'application/json',
-  'Authorization': token
+  'Accept': 'application/json'
 }
 
 export const getAll = () =>
-  fetch(`${api}/contacts`, { headers })
+  fetch("test.php", { headers })
     .then(res => res.json())
-    .then(data => data.contacts)
-
-export const remove = (contact) =>
-  fetch(`${api}/contacts/${contact.id}`, { method: 'DELETE', headers })
-    .then(res => res.json())
-    .then(data => data.contact)
+    // .then(data => data.contacts)
 
 export const create = (body) =>
   fetch(`${api}/contacts`, {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem, NavDropdown, DropdownItem, Table }  from 'react-bootstrap';
 import Select from 'react-select';
-import 'react-select/dist/react-select.css';
+//import 'react-select/dist/react-select.css';
 
 import { fetchInfo } from '../actions/actions_info';
 
